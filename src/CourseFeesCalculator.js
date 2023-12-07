@@ -33,9 +33,20 @@ function CourseFeesCalculator() {
 
     const minimumFees = calculateMinimumFees();
 
+    const renderCourses = () => {
+        return Object.entries(courseData).map(([key, course]) => (
+            <li key={key}>
+                <strong>{course.name}</strong>: ${course.fees}
+            </li>
+        ));
+    };
+
     return (
         <div>
             <h2>Minimum Fees Calculator</h2>
+            <ul>
+                {renderCourses()}
+            </ul>
             <p>Minimum Fees for Rahul: {minimumFees}</p>
         </div>
     );
